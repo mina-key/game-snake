@@ -1,0 +1,38 @@
+* {
+    box-sizing: border-box;
+    margin: auto;
+   
+  }
+.game-body{
+display:flex ;
+flex-direction: column;
+justify-content:center;
+height: 100vh;
+background-image: url('./image/background.jpg');
+width: auto;
+background-size: cover; /* برای پوشش کامل از تصویر */
+ 
+
+
+}
+
+.game-item {
+    margin: 50px 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+
+#score{
+    font-size: 40px;
+    border: 10px solid #578A34;
+    padding: 2%;
+    background-color: #99cc33;
+    
+}
+#game-canvas{
+    border: 15px solid #578A34;
+background-image: url('./image/ground.png');
+
+}
