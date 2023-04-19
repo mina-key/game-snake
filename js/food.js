@@ -1,4 +1,5 @@
 import { ctx, chessSquare,canvas } from './canvas.js';
+import { snake } from './snake.js';
 
 
  let foodX;
@@ -12,6 +13,11 @@ foodImg.src = "image/food.png";
 function createFood() {
     foodX = randomNumber(0, canvas.width - 32);
     foodY = randomNumber(0, canvas.height - 32);
+    snake.forEach((snakepart) => {
+        if (snakepart.x === foodX && snakepart.y === foodY) {
+          createFood();
+        }
+      });
 
   }
   //=======================================
