@@ -2,8 +2,8 @@ import { ctx, chessSquare,canvas } from './canvas.js';
 import { snake } from './snake.js';
 
 
- let foodX;
- let foodY;
+export let foodX;
+export let foodY;
 // load image food & create random food
 const foodImg = new Image();
 foodImg.src = "image/food.png";
