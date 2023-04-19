@@ -10,9 +10,7 @@ justify-content:center;
 height: 100vh;
 background-image: url('./image/background.jpg');
 width: auto;
-background-size: cover; /* برای پوشش کامل از تصویر */
- 
-
+background-size: cover; /* For full coverage of the image*/
 
 }
 
@@ -36,3 +34,15 @@ background-size: cover; /* برای پوشش کامل از تصویر */
 background-image: url('./image/ground.png');
 
 }
+.gameover{
+    position: absolute;
+    top: 25%;
+    padding: 15px;
+    width: 100%;
+    display: none;
+    border-radius: 10px;
+    text-align: center;
+    background-color: #cc3333;
+    font-size: 60px;
+    font-style: italic;
+  }

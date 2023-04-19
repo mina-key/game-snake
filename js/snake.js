@@ -1,5 +1,3 @@
-// import { ctx, chessSquare,canvas } from './canvas.js';
-// import { createFood, drowFood } from './food.js';
 import { ctx, chessSquare, canvas } from './canvas.js';
 import { createFood, drowFood, foodX ,foodY} from './food.js';
 //game total score
@@ -10,6 +8,9 @@ let direction;
 let dX = 32;
 let dY = 0;
 let changingDirection = false;
+//gameover audio
+let gameover = new Audio();
+gameover.src="audio/gameover.wav"
 //=======================================
 // add event listener to change snake's direction
 document.addEventListener("keydown", changeDirection);
@@ -75,7 +76,6 @@ createFood()
       snake.pop()
   }
  
-  
 }
 //=======================================
 function drowSnakePart(snakepart) {
@@ -95,7 +95,6 @@ function drowSnakePart(snakepart) {
 
 
 //======================================
-//=======================================
 //game over
 function didGameEnd(){
     //the snake hit itself
@@ -115,15 +114,21 @@ function didGameEnd(){
     const hitBottomWall=snake[0].y>canvas.height-chessSquare
     return hitLeftWall||hitRightWall||hitTopWall||hitBottomWall
 }
+//======================================
+function showScore(){
+    var end = document.getElementById('end');
+    end.innerHTML = `Score: ${score} <br> Game over`;
+    end.style.display = "block";
+}
+//======================================
   function firstMove() {
     if(didGameEnd()) {
-    
-       return
+        showScore()
+        gameover.play()
+        return
     }
-   
     setTimeout(() => {
-        changingDirection = false;
-
+      changingDirection = false;
       clearCanvas();
       drowFood();
       moveSnake();
@@ -131,6 +136,7 @@ function didGameEnd(){
       firstMove();
     }, 500);
   }
+  //======================================
   // draw chessboard
   ctx.strokeRect(0, 0, canvas.width, canvas.height);
   
