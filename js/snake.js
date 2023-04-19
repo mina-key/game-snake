@@ -1,4 +1,6 @@
 import { ctx, chessSquare} from './canvas.js';
+import {  drowFood} from './food.js';
+
 let snake = [{ x: 4 * chessSquare, y: 4 * chessSquare }];
 //=======================================
 function drowSnakePart(snakepart) {
@@ -12,4 +14,7 @@ function drowSnakePart(snakepart) {
     snake.forEach(drowSnakePart);
   }
 //=======================================
+drowFood();
 drowSnake()
+
+export { snake};
